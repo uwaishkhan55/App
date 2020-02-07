@@ -25,7 +25,7 @@ const usersRouter = require('./routes/users');
 
 app.use('/exercises', exercisesRouter);
 app.use('/users', usersRouter);
-
+app.use(express.static(path.join(__dirname, "client", "build")))
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
