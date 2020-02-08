@@ -20,11 +20,19 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
 
-const exercisesRouter = require('./routes/exercises');
+const register = require('./routes/register');
 const usersRouter = require('./routes/users');
-
-app.use('/exercises', exercisesRouter);
+const cookieParser = require('cookie-parser')
+app.use(cookieParser())
+app.use('/register', register);
 app.use('/users', usersRouter);
+app.use('/verification',require('./routes/verification'));
+app.get('/cookies',(req,res)=>{
+  const j=req.cookies.token;
+     res.json({
+          j
+     })
+})
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
