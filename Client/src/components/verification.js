@@ -12,7 +12,7 @@ class verification extends Component {
    handleForm=(e)=>{
     e.preventDefault();
        alert(this.state.code)
-       Axios.post('http://localhost:5000/verification/',this.state.code)
+       Axios.post('/verification/',this.state.code)
        .then(res=>{
            alert(res)
        })

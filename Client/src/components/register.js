@@ -53,7 +53,7 @@ class register extends Component {
 
     alert(exercise.username);
 
-    axios.post('http://localhost:5000/register/', exercise)
+    axios.post('/register/', exercise)
       .then(res => console.log(res.data+"fuckkkkkkkkkkkkkkkkk"));
     
     window.location = '/verification';
